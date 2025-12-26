@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reed Clinic - Dental Services</title>
+    <link href="plugins/css2.css" rel="stylesheet">
+    <link href="plugins/jquery-ui.css" rel="stylesheet" >
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="image/logo.png" type="image/png">
+    
+    <script src="plugins/jquery-3.6.0.min.js"></script>
+    <script src="plugins/jquery-ui.js"></script>
+
+</head>
+<body style="background-color: #e9f3f3;">
+    <header>
+        <div class="container">
+         <div class="logo">
+            <img src="image/logo.png" alt="logo" width="70px" height="70px">
+            <div class="name">
+            <span><a href="index.html" class="para">ReedClinic</a></span>
+            </div>
+            </div>
+            <div class="navigation">
+               <nav>
+                <a class="page" href="index.html">Home</a>
+                <a class="page" href="book-now.html">Book Now</a>
+                <a class="page" href="about.html">About</a>
+                <a class="page" href="FAQ.html">FAQ</a>
+                <a class="page" href="index.html#contact">Contact</a>
+               </nav>
+               </div>
+            </div>
+    </header>
+    <main class="style">
+          
+        <div class="heading">
+            <a href="javascript:history.back()" class="back">&larr; Back</a>
+
+            <h1 class="font-para">Your Time, Your Choice – Book Now!</h1>
+            <p class="para">Check out our availability and book the date and time that works for you</p>
+        </div>
+    
+        <div class="timezone">Timezone: Pacific Daylight Time (PDT)</div>
+    
+        <div class="booking-section">
+          <div class="calendar-container">
+            <label for="datepicker"><strong>📅 Select a Date:</strong></label>
+            <input type="text" id="datepicker" placeholder="Choose a date" />
+          </div>
+          
+          <div class="time-slot-container">
+            <h3 class="font-para">⏰ Available Times</h3>
+            <div class="time-buttons">
+              <div class="time-button">2:00 PM</div>
+              <div class="time-button">2:30 PM</div>
+              <div class="time-button">3:00 PM</div>
+              <div class="time-button">3:30 PM</div>
+              <div class="time-button">4:00 PM</div>
+              <div class="time-button">4:30 PM</div>
+              <div class="time-button">5:00 PM</div>
+            </div>
+            <button class="submit-btn para">Confirm Booking</button>
+            <div class="success-message">Successfully Done!</div>
+          </div>
+        </div>
+    
+       
+
+    </main>
+    <footer>
+        <div class="sec5">
+            <div class="box3">
+                <div class="color-box">
+                <div class="info-box">
+                    <div class="Angela-heading">
+                       <h4 class="font-para"> Angela  L. Reed Dental Hygiene Clinic</h4>
+                    </div>
+                    <div class="info">
+                        <p class="para">Our Address :</p>
+                        <p class="para">Email: info@mysite.com</p>
+                        <p class="para">Tel: 123-456-7890</p>
+                        <p class="para">500 Terry Francine Street</p>
+                        <p class="para"> San Francisco, CA 94158</p>
+                    </div>
+                    <a href="https://www.instagram.com/?hl=en" class="instagram-link" target="_blank"><img src="image/icons8-instagram-logo-48.png" alt="instagram-logo">
+                        <p class="para">Follow us on Instagram</p></a>
+                </div>
+                <div class="clinic-timing">
+                    <div class="clinic-hours">
+                    <h4 class="font-para"> Clinic Hours</h4>
+                    </div>
+                    <div class="timing">
+                        <p class="para">Mon. Wed, Thu: 9am to 5pm</p>
+                        <p class="para">Tue: 11am to 7pm</p>
+                        <p class="para">Fri: 9am to 1pm</p>
+                        <p class="para">By Appointment Only</p>
+                    </div>
+                    <div class="booknow-btn">
+                        <a href="book-now.html">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-container" id="contact">
+                <form id="contactForm">
+                    <div class="contact-Us">
+                        <h2 class="font-para">Contact us</h2>
+                    </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="firstName">First name *</label>
+                        <input type="text" id="firstName" />
+                        <div class="error" id="firstNameError"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name *</label>
+                        <input type="text" id="lastName"/>
+                        <div class="error" id="lastNameError"></div>
+                    </div>
+                </div>
+                    <div class="form-group full">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email"/>
+                        <div class="error" id="emailError"></div>
+                        
+                    </div>
+                    <div class="form-group full">
+                        <label for="message">Write a message</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                <!-- </div> -->
+                <div class="button-row">
+                    <button type="submit">Submit</button>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="jquery.js"></script>
+      
+      
+    <script>
+        $(function() {
+        $("#datepicker").datepicker({
+            minDate: 0,
+            dateFormat: "MM d, yy"
+        });
+
+        $('.time-button').on('click', function() {
+         $('.time-button').removeClass('selected');
+         $(this).addClass('selected');
+        });
+
+        $('.submit-btn').on('click', function() {
+        const selectedDate = $('#datepicker').val();
+        const selectedTime = $('.time-button.selected').length > 0;
+
+        if (selectedDate && selectedTime) {
+            $('.success-message').text("🦷 Smile ready! Your appointment is confirmed.").css("color", "green").fadeIn();
+        } else {
+            $('.success-message').text("We need both a date 📅 and time ⏰ to confirm your booking!").css("color", "red").fadeIn();
+        }
+        });
+    })
+    $('.submit-btn').on('click', function() {
+    $('.success-message').fadeIn(300).delay(2500).fadeOut(300);
+    });
+ 
+
+
+    </script>
+</body>
+</html>
